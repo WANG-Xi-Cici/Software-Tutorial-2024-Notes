@@ -58,6 +58,94 @@ The parallelogram has length 3 given `n=2`
 
 You can assume the size is an integer > 1
 
+
+int N = 2 * size + 1;
+	int H = 3 * size + 2;
+
+	for (int y = 0; y < H; y++)
+	{
+		// the first part
+		if (y < size)
+		{
+			for (int x = 0; x < N; x++)
+			{
+				if (x < size - y)
+					printf("*");
+				else if (x < size + 1 + y)
+					printf(" ");
+				else
+					printf("*");
+			}
+
+			printf("\n");
+		}
+		else if (y == size)
+		{
+			printf("\n");
+		}
+		// the second part
+		else if (y > size && y < N)
+		{
+			int dy = y - size;
+			for (int x = 0; x < N; x++)
+			{
+				if (x < dy)
+					printf("*");
+				else if (x < N - dy)
+					printf(" ");
+				else
+					printf("*");
+			}
+
+			printf("\n");
+		}
+		else if (y == N)
+		{
+			printf("\n");
+		}
+		// the third part
+		else if (y > N)
+		{
+			int dy = y - N;
+			for (int x = 0; x < N + size; x++)
+			{
+				if (x < size)
+					printf("*");
+				else if (x < size + dy)
+					printf(" ");
+				else if (x > N + dy - 2)
+					printf(" ");
+				else
+					printf("*");
+			}
+
+			printf("\n");
+		}
+	}
+}
+
+
+
+int main(int argc, char *argv[])
+{
+	while (1)
+	{
+		int size = 0;
+		printf("\nPlease enter the shape size: ");
+		scanf("%d", &size);
+		printf("\n");
+
+		if (size == 0)
+			break;
+
+		//draw_level_1_shape(size);
+		draw_level_2_shape(size);
+	}
+	
+	return 0;
+}
+
+
 ## How to Run Your Code
 
 To run the code, you need to make sure that you are first in the right folder/directory in your terminal (the text area under your code):
