@@ -13,7 +13,9 @@ int main() {
     float float1 = 4.0f, float2 = 3.7f;
     printf("before swapping, a = %f, b = %f\n", float1, float2);
     // your code starts here
-    
+     float temp = float1; 
+    float1 = float2;
+    float2 = temp;
     // your code ends here
     printf("after swapping, a = %f, b = %f\n", float1, float2);
     return 0;
